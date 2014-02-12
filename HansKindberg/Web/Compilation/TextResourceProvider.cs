@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Resources;
 using System.Web.Compilation;
-using ResourceReader = HansKindberg.Resources.ResourceReader;
 
 namespace HansKindberg.Web.Compilation
 {
-	public class TextResourceProvider : IResourceProvider
+	public class TextResourceProvider : IResourceProvider, IImplicitResourceProvider
 	{
 		#region Fields
 
-		private readonly IDictionary _dictionary;
+		private IDictionary<string, ICollection> _implicitResources;
 		private readonly string _path;
 
 		#endregion
@@ -21,43 +22,52 @@ namespace HansKindberg.Web.Compilation
 		public TextResourceProvider(string path)
 		{
 			this._path = path ?? string.Empty;
-
-			this._dictionary = new Hashtable
-				{
-					{"TestLabel.Text", "MyText"},
-					{"TestLabel.ToolTip", "MyToolTip"}
-					//{"MyMetaResourceKey.Text", "MyText"},
-					//{"MyMetaResourceKey.ToolTip", "MyToolTip"}
-				};
 		}
 
 		#endregion
 
 		#region Properties
 
-		protected internal virtual IDictionary Dictionary
+		protected internal virtual IDictionary<string, ICollection> ImplicitResources
 		{
-			get { return this._dictionary; }
+			get
+			{
+				if(this._implicitResources == null)
+				{
+					this._implicitResources = new Dictionary<string, ICollection>(StringComparer.OrdinalIgnoreCase)
+						{
+							{"TestLabel", new Collection<ImplicitResourceKey> {new ImplicitResourceKey(string.Empty, "/hej/hopp/TestLabel", "Text"), new ImplicitResourceKey(string.Empty, "/hej/hopp/TestLabel", "ToolTip")}}
+						};
+				}
+				return this._implicitResources;
+			}
 		}
 
 		public virtual IResourceReader ResourceReader
 		{
-			get { return new ResourceReader(this.Dictionary); }
+			get { throw new NotSupportedException(); }
 		}
 
 		#endregion
 
 		#region Methods
 
+		public virtual ICollection GetImplicitResourceKeys(string keyPrefix)
+		{
+			if(!this.ImplicitResources.ContainsKey(keyPrefix))
+				return null;
+
+			return this.ImplicitResources[keyPrefix];
+		}
+
 		public virtual object GetObject(string resourceKey, CultureInfo culture)
 		{
-			// ReSharper disable ConditionIsAlwaysTrueOrFalse
-			if(resourceKey != null && resourceKey.StartsWith("TestLabel", StringComparison.OrdinalIgnoreCase))
-				return this.Dictionary[resourceKey];
-
-			// ReSharper restore ConditionIsAlwaysTrueOrFalse
-
 			return string.Format(CultureInfo.InvariantCulture, "Path = {0}, ResourceKey = {1} & CultureInfo = {2}", this._path, resourceKey, culture);
+		}
+
+		public virtual object GetObject(ImplicitResourceKey key, CultureInfo culture)
+		{
+			throw new NotImplementedException();
 		}
 
 		#endregion

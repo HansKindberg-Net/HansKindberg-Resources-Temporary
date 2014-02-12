@@ -46,8 +46,11 @@
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
     <Compile Include="CodeAnalysis\AssemblySuppressions.cs" />
+    <Compile Include="Globalization\CultureContext.cs" />
+    <Compile Include="Globalization\ICultureContext.cs" />
+    <Compile Include="IO\FileSystemWatcherWrapper.cs" />
+    <Compile Include="IO\IFileSystemWatcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\ResourceReader.cs" />
     <CodeAnalysisDictionary Include="..\CodeAnalysis\SolutionDictionary.xml">
       <Link>CodeAnalysis\SolutionDictionary.xml</Link>
     </CodeAnalysisDictionary>

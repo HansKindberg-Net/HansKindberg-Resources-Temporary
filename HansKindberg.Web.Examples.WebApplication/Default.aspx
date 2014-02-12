@@ -6,6 +6,6 @@
 	</head>
 	<body>
 		<h1>Default</h1>
-		<p><asp:Label id="TestLabel" meta:resourcekey="TestLabel" runat="server" /></p>
+		<p><asp:Label id="TestLabel" Text="Parsed text" ToolTip="Parsed tooltip" meta:resourcekey="TestLabel" runat="server" /></p>
 	</body>
 </html>
