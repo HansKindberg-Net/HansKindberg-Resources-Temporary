@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HansKindberg", "HansKindberg\HansKindberg.csproj", "{6A4E5B99-9CC7-42FA-8788-1293EEE33F17}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeAnalysis", "CodeAnalysis", "{63C1945C-8102-4253-8E4D-EB46AB8B4430}"
+	ProjectSection(SolutionItems) = preProject
+		CodeAnalysis\Solution.ruleset = CodeAnalysis\Solution.ruleset
+		CodeAnalysis\Solution.Tests.ruleset = CodeAnalysis\Solution.Tests.ruleset
+		CodeAnalysis\SolutionDictionary.xml = CodeAnalysis\SolutionDictionary.xml
+		CodeAnalysis\SolutionSuppressions.cs = CodeAnalysis\SolutionSuppressions.cs
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HansKindberg.Web.Examples.WebApplication", "HansKindberg.Web.Examples.WebApplication\HansKindberg.Web.Examples.WebApplication.csproj", "{CC335838-2CC2-4D7E-91F2-01A4E429701E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Properties", "Properties", "{4E3D2DF5-F74E-4246-BBD8-A465372E0917}"
+	ProjectSection(SolutionItems) = preProject
+		Properties\SolutionInfo.cs = Properties\SolutionInfo.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A32AD823-9A86-430A-9BB9-9464A1DAB221}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.config = .nuget\NuGet.config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A4E5B99-9CC7-42FA-8788-1293EEE33F17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A4E5B99-9CC7-42FA-8788-1293EEE33F17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A4E5B99-9CC7-42FA-8788-1293EEE33F17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A4E5B99-9CC7-42FA-8788-1293EEE33F17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC335838-2CC2-4D7E-91F2-01A4E429701E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC335838-2CC2-4D7E-91F2-01A4E429701E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC335838-2CC2-4D7E-91F2-01A4E429701E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC335838-2CC2-4D7E-91F2-01A4E429701E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
